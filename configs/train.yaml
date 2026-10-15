@@ -1,0 +1,25 @@
+model: lmstudio-community/Qwen3-0.6B-MLX-4bit
+train: true
+fine_tune_type: lora
+optimizer: adam
+data: data/training
+seed: 42
+num_layers: -1
+batch_size: 1
+grad_accumulation_steps: 1
+iters: 621
+val_batches: -1
+learning_rate: 0.00001
+steps_per_report: 10
+steps_per_eval: 32
+mask_prompt: true
+max_seq_length: 2048
+adapter_path: outputs/adapter
+save_every: 32
+grad_checkpoint: false
+clear_cache_threshold: 0
+lora_parameters:
+  rank: 8
+  dropout: 0.0
+  scale: 20.0
+

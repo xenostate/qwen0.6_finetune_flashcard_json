@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "flashcards_v1.schema.json",
+  "title": "Flashcard generation response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source", "flashcards"],
+  "properties": {
+    "source": {
+      "type": "string"
+    },
+    "flashcards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["question", "answer"],
+        "properties": {
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "answer": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
+

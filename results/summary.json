@@ -1,0 +1,47 @@
+{
+  "selected_checkpoint": "qlora_v6",
+  "base_model": "lmstudio-community/Qwen3-0.6B-MLX-4bit",
+  "training": {
+    "accepted_pool_records": 684,
+    "train_records": 621,
+    "validation_records": 28,
+    "optimizer_updates": 621,
+    "trainable_parameters": 5046000,
+    "total_parameters": 596050000,
+    "trainable_percent": 0.847,
+    "selected_validation_loss": 0.423
+  },
+  "family_held_out_evaluation": {
+    "records": 35,
+    "reference_concepts": 105,
+    "previous_checkpoint": {
+      "valid_raw_json": 34,
+      "schema_and_exact_source": 33,
+      "correct_empty_nonempty": 28,
+      "strict_semantic_pass": 5,
+      "reference_concepts_covered": 55
+    },
+    "selected_checkpoint": {
+      "valid_raw_json": 35,
+      "schema_and_exact_source": 35,
+      "correct_empty_nonempty": 33,
+      "strict_semantic_pass": 10,
+      "reference_concepts_covered": 74
+    }
+  },
+  "frozen_regression_evaluation": {
+    "records": 20,
+    "valid_raw_json": 20,
+    "schema_and_exact_source": 20,
+    "correct_empty_nonempty": 20
+  },
+  "generation": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "top_k": 0,
+    "max_new_tokens": 1024,
+    "seed": 42,
+    "thinking": false
+  }
+}
+
