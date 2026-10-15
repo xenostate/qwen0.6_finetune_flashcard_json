@@ -1,8 +1,11 @@
 # Qwen3 0.6B flashcard QLoRA
 
-An end-to-end local fine-tuning and evaluation project for converting source passages into grounded study flashcards with a strict JSON output contract.
+This project teaches a small local language model to read a passage and return useful study flashcards as JSON. The model only uses the supplied passage and can return an empty list when there is nothing worth studying.
 
-The project uses a 4-bit Qwen3 0.6B model, MLX-LM, and LoRA adapters. It covers data curation, leakage-safe splitting, training, deterministic evaluation, semantic auditing, and checkpoint selection.
+The repository contains the prepared data, training setup, evaluation scripts, and a short explanation of how the model was tested.
+
+- [Model adapter on Hugging Face](https://huggingface.co/tenroman/qwen0.6_finetune_flashcard_json)
+- [Source repository](https://github.com/xenostate/qwen0.6_finetune_flashcard_json)
 
 ## Results
 
@@ -127,4 +130,3 @@ See [docs/evaluation.md](docs/evaluation.md) for the concise protocol and [docs/
 ## Limitations
 
 This adapter is an experimental small-model specialization. Dense passages with several interacting conditions remain difficult, so outputs should be reviewed before being used as authoritative study material. The datasets are synthetic and are intended for controlled model-development experiments.
-

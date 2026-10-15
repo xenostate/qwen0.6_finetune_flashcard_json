@@ -13,7 +13,7 @@ After creating an empty model repository on Hugging Face and logging in with the
 ```bash
 unzip qwen3-0.6b-flashcards-qlora-v6-hf.zip
 
-hf upload YOUR_USERNAME/qwen3-0.6b-flashcards-qlora-v6 \
+hf upload tenroman/qwen0.6_finetune_flashcard_json \
   qwen3-0.6b-flashcards-qlora-v6-hf .
 ```
 

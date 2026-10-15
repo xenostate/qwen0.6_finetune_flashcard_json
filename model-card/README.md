@@ -11,7 +11,9 @@ tags:
 
 # Qwen3 0.6B Flashcard QLoRA
 
-This is an MLX LoRA adapter for converting one supplied source passage into grounded study flashcards represented as strict JSON.
+This adapter turns one supplied passage into study flashcards in JSON format. It uses only the supplied text, copies that text into the response, and returns an empty flashcard list when the passage has no useful facts.
+
+Training code, data, and evaluation details are available in the [GitHub repository](https://github.com/xenostate/qwen0.6_finetune_flashcard_json).
 
 ## Base model
 
