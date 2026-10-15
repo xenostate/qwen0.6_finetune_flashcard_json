@@ -49,6 +49,18 @@ Validation loss selected the candidate checkpoint. The targeted evaluation check
 
 ## Selected-checkpoint results
 
+### Prompted base model to selected adapter
+
+| Frozen-set metric | Prompted base model | Selected adapter |
+|---|---:|---:|
+| Strict raw JSON | 0/20 | **20/20** |
+| Schema and exact source after removing one baseline Markdown fence | 14/20 | **20/20** |
+| Correct empty/nonempty decision after the same normalization | 11/20 | **20/20** |
+
+All base-model responses contained an outer Markdown fence. Removing exactly that fence is reported as a diagnostic so formatting and underlying schema behavior remain distinguishable.
+
+### Previous checkpoint to selected adapter
+
 | Metric | Previous checkpoint | Selected checkpoint |
 |---|---:|---:|
 | Valid raw JSON | 34/35 | **35/35** |
@@ -57,5 +69,4 @@ Validation loss selected the candidate checkpoint. The targeted evaluation check
 | Strict semantic passes | 5/35 | **10/35** |
 | Reference concepts covered | 55/105 | **74/105** |
 
-The selected adapter also achieved 20/20 valid JSON, exact source copies, and correct empty/nonempty decisions on the frozen regression set.
-
+The selected adapter achieved 20/20 valid JSON, exact source copies, and correct empty/nonempty decisions on the frozen regression set without output normalization.

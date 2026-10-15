@@ -31,9 +31,16 @@
   },
   "frozen_regression_evaluation": {
     "records": 20,
+    "prompted_base_model": {
+      "strict_valid_raw_json": 0,
+      "schema_and_exact_source_after_single_fence_removal": 14,
+      "correct_empty_nonempty_after_single_fence_removal": 11
+    },
+    "selected_checkpoint": {
     "valid_raw_json": 20,
     "schema_and_exact_source": 20,
     "correct_empty_nonempty": 20
+    }
   },
   "generation": {
     "temperature": 0.0,
@@ -44,4 +51,3 @@
     "thinking": false
   }
 }
-

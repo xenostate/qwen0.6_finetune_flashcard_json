@@ -55,6 +55,16 @@ Training examples were grouped by structural family before splitting to reduce n
 
 ## Evaluation
 
+| Frozen-set metric | Prompted base model | This adapter |
+|---|---:|---:|
+| Strict raw JSON | 0/20 | **20/20** |
+| Schema and exact source after removing one baseline Markdown fence | 14/20 | **20/20** |
+| Correct empty/nonempty decision after the same normalization | 11/20 | **20/20** |
+
+The base model wrapped every response in a Markdown fence. The normalized baseline rows remove only that fence; this adapter required no output cleanup.
+
+Further training iterations produced the following family-held-out improvement over the previous fine-tuned checkpoint:
+
 | Family-held-out metric | Previous checkpoint | This adapter |
 |---|---:|---:|
 | Valid raw JSON | 34/35 | **35/35** |

@@ -6,7 +6,7 @@
 
 - Fine-tuned a 4-bit Qwen3 0.6B model with MLX QLoRA using 621 curated examples, family-grouped leakage-safe splits, and validation-based checkpoint selection.
 - Built a deterministic evaluation harness for JSON compliance, exact source retention, empty-case classification, card coverage, and semantic correctness.
-- Improved family-held-out schema and source accuracy from **33/35 to 35/35**, empty/nonempty decisions from **28/35 to 33/35**, and audited concept coverage from **52.4% to 70.5%**.
+- Improved strict raw-JSON compliance from **0/20 to 20/20** versus the prompted base model; after removing the baseline's Markdown fences, improved schema and source accuracy from **14/20 to 20/20** and empty/nonempty decisions from **11/20 to 20/20**.
 
 ### Short project description
 

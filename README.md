@@ -11,6 +11,16 @@ The repository contains the prepared data, training setup, evaluation scripts, a
 
 The selected adapter was trained on 621 examples and chosen using a fixed 28-record validation set. It was then evaluated on a 35-record family-held-out set and a separate 20-record frozen regression set.
 
+| Frozen-set metric | Prompted base model | Selected adapter |
+|---|---:|---:|
+| Strict raw JSON | 0/20 | **20/20** |
+| Schema and exact source after removing one baseline Markdown fence | 14/20 | **20/20** |
+| Correct empty/nonempty decision after the same normalization | 11/20 | **20/20** |
+
+The base model wrapped every response in a Markdown code fence, which violated the output contract. The second and third rows remove only that fence to provide a fairer view of the underlying response.
+
+Additional training rounds improved the selected checkpoint on the family-held-out evaluation:
+
 | Family-held-out metric | Previous checkpoint | Selected checkpoint |
 |---|---:|---:|
 | Valid raw JSON | 34/35 | **35/35** |
@@ -19,7 +29,7 @@ The selected adapter was trained on 621 examples and chosen using a fixed 28-rec
 | Strict semantic passes | 5/35 | **10/35** |
 | Reference concepts covered | 55/105 | **74/105** |
 
-On the frozen set, the selected adapter achieved **20/20** valid JSON responses, exact source copies, and correct empty/nonempty decisions.
+The family-held-out comparison is against the preceding fine-tuned checkpoint, while the frozen comparison above is against the untouched base model.
 
 ## Workflow
 

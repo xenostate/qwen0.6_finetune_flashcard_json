@@ -2,7 +2,7 @@
 
 ## Thirty-second explanation
 
-I fine-tuned a quantized Qwen3 0.6B model to turn source passages into grounded flashcards with a strict JSON schema. I built the dataset, leakage-safe splits, MLX QLoRA training workflow, deterministic evaluation harness, and a manual semantic audit. The selected checkpoint reached 35/35 schema-valid outputs with exact source copying on a family-held-out set and increased audited concept coverage from 52.4% to 70.5% over the previous checkpoint.
+I fine-tuned a quantized Qwen3 0.6B model to turn source passages into grounded flashcards with a strict JSON schema. I built the dataset, leakage-safe splits, MLX QLoRA training workflow, deterministic evaluation harness, and a manual semantic audit. On the frozen evaluation set, strict raw-JSON compliance improved from 0/20 for the prompted base model to 20/20 for the selected adapter.
 
 ## What problem was being solved?
 
@@ -47,14 +47,22 @@ Generation was deterministic: temperature zero, fixed seed, disabled thinking, a
 
 ## Main result
 
-Compared with the preceding checkpoint, the selected adapter improved:
+Compared with the prompted base model on the frozen set, the selected adapter improved:
+
+- Strict raw JSON: **0/20 → 20/20**
+- Schema plus exact source after removing one baseline Markdown fence: **14/20 → 20/20**
+- Correct empty/nonempty decisions after the same normalization: **11/20 → 20/20**
+
+The base model fenced every response, so its official strict score was zero. The normalized figures show that fine-tuning also improved the response contents rather than only removing the fences.
+
+Compared with the preceding fine-tuned checkpoint on the family-held-out set, it also improved:
 
 - Schema plus exact-source success: **33/35 → 35/35**
 - Correct empty/nonempty decisions: **28/35 → 33/35**
 - Reference-concept coverage: **55/105 → 74/105**
 - Strict semantic passes: **5/35 → 10/35**
 
-It also passed all 20 records in the frozen set for raw JSON, schema, exact source copying, and empty/nonempty decisions.
+These two comparisons answer different questions: baseline versus selected adapter measures the overall project gain, while the checkpoint comparison measures improvement from the final data iteration.
 
 ## What I learned
 
@@ -83,4 +91,3 @@ A response can be valid JSON while still reversing a threshold or dropping an ex
 ### What would you do next?
 
 Add more diverse human-reviewed passages, increase representation of dense multi-condition examples, automate concept-level grading with a separately validated judge, and compare the 0.6B adapter with larger base models under the same evaluation protocol.
-
